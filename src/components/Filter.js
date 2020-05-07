@@ -1,19 +1,25 @@
-import React, {Component} from 'react';
-import {PropTypes} from 'prop-types';
+import React, { useState } from 'react';
+import { PropTypes } from 'prop-types';
 import Checkbox from '@material-ui/core/Checkbox';
 
-class Filter extends Component {
+const Filter = ({ nameChecked, setNameChecked, ageChecked, setAgeChecked }) => {
+    const handleNameChange = () => {
+        !nameChecked ? setNameChecked(true) : setNameChecked(false);
+        setAgeChecked(false);
+    };
 
-    render() {
-        return (
-        <div className="checkboxes">
-            <Checkbox/>
+    const handleAgeChange = () => {
+        !ageChecked ? setAgeChecked(true) : setAgeChecked(false);
+        setNameChecked(false);
+    };
+    return (
+        <div className='checkboxes'>
+            <Checkbox onChange={handleNameChange} checked={nameChecked} />
             <label>Name</label>
-            <Checkbox/>
+            <Checkbox onChange={handleAgeChange} checked={ageChecked} />
             <label>Age</label>
         </div>
-        );
-    }
-}
+    );
+};
 
 export default Filter;

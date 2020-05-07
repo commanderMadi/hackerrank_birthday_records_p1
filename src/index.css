@@ -8,7 +8,9 @@ body {
 .table-header {
     font-size: 20px !important;
 }
-
+.tcell {
+    text-align: center !important;
+}
 .width {
     width: 60%;
     margin: 0 auto;
