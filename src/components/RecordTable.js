@@ -14,8 +14,16 @@ const RecordTable = ({ nameChecked, ageChecked, people }) => {
                 const ageTwo = nextPerson.dob;
                 const yearOne = Number(ageOne.split('/')[2]);
                 const yearTwo = Number(ageTwo.split('/')[2]);
+                const monthOne = Number(ageOne.split('/')[0]);
+                const monthTwo = Number(ageTwo.split('/')[0]);
+                const dayOne = Number(ageOne.split('/')[1]);
+                const dayTwo = Number(ageTwo.split('/')[1]);
                 if (yearOne === yearTwo) {
-                    return Number(ageTwo.split('/')[0] - ageOne.split('/')[0]);
+                    if (monthOne === monthTwo) {
+                        return dayTwo - dayOne;
+                    } else {
+                        return monthTwo - monthOne;
+                    }
                 }
                 return yearTwo - yearOne;
             });
