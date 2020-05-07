@@ -1,6 +1,7 @@
 import React from 'react';
 import Checkbox from '@material-ui/core/Checkbox';
 
+// I refactored the code to use RFCs and hooks.
 const Filter = ({ nameChecked, setNameChecked, ageChecked, setAgeChecked }) => {
     const handleNameChange = () => {
         !nameChecked ? setNameChecked(true) : setNameChecked(false);
