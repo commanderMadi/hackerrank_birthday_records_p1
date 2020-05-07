@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -49,7 +49,7 @@ const RecordTable = ({ nameChecked, ageChecked, people }) => {
                 <TableBody>
                     {sortedAlphabetically().map((person) => {
                         return (
-                            <TableRow>
+                            <TableRow key={person.name}>
                                 <TableCell className='tcell'>
                                     {person.name}
                                 </TableCell>
