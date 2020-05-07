@@ -15,9 +15,9 @@ const RecordTable = ({ nameChecked, ageChecked, people }) => {
                 const yearOne = Number(ageOne.split('/')[2]);
                 const yearTwo = Number(ageTwo.split('/')[2]);
                 if (yearOne === yearTwo) {
-                    return Number(ageOne.split('/')[0] - ageTwo.split('/')[0]);
+                    return Number(ageTwo.split('/')[0] - ageOne.split('/')[0]);
                 }
-                return yearOne - yearTwo;
+                return yearTwo - yearOne;
             });
         }
         return people.sort((currentPerson, nextPerson) => {
