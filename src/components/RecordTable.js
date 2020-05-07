@@ -7,25 +7,13 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
 const RecordTable = ({ nameChecked, ageChecked, people }) => {
-    const sortedAlphabetically = () => {
+    const sorted = () => {
+        // If both age and name are checked, the sorting will be by age.
         if (ageChecked) {
             return people.sort((currentPerson, nextPerson) => {
                 const ageOne = currentPerson.dob;
                 const ageTwo = nextPerson.dob;
-                const yearOne = Number(ageOne.split('/')[2]);
-                const yearTwo = Number(ageTwo.split('/')[2]);
-                const monthOne = Number(ageOne.split('/')[0]);
-                const monthTwo = Number(ageTwo.split('/')[0]);
-                const dayOne = Number(ageOne.split('/')[1]);
-                const dayTwo = Number(ageTwo.split('/')[1]);
-                if (yearOne === yearTwo) {
-                    if (monthOne === monthTwo) {
-                        return dayOne - dayTwo;
-                    } else {
-                        return monthOne - monthTwo;
-                    }
-                }
-                return yearOne - yearTwo;
+                return new Date(ageOne) - new Date(ageTwo);
             });
         }
         return people.sort((currentPerson, nextPerson) => {
@@ -55,7 +43,7 @@ const RecordTable = ({ nameChecked, ageChecked, people }) => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {sortedAlphabetically().map((person) => {
+                    {sorted().map((person) => {
                         return (
                             <TableRow key={person.name}>
                                 <TableCell className='tcell'>
