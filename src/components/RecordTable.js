@@ -20,12 +20,12 @@ const RecordTable = ({ nameChecked, ageChecked, people }) => {
                 const dayTwo = Number(ageTwo.split('/')[1]);
                 if (yearOne === yearTwo) {
                     if (monthOne === monthTwo) {
-                        return dayTwo - dayOne;
+                        return dayOne - dayTwo;
                     } else {
-                        return monthTwo - monthOne;
+                        return monthOne - monthTwo;
                     }
                 }
-                return yearTwo - yearOne;
+                return yearOne - yearTwo;
             });
         }
         return people.sort((currentPerson, nextPerson) => {
